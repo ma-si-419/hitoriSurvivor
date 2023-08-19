@@ -14,6 +14,7 @@ public class ExpController : MonoBehaviour
     double Distance; //
     bool isFlag;
     int count;
+
     void Start()
     {
         isFlag = false;

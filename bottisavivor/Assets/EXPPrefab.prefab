@@ -99,11 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c74540c907d5f4eb47b2486677840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d0639892b2175ec439a54cb7ae8f3698, type: 3}
-  target: {fileID: 0}
-  moveSpeed: 0
-  stopDistance: 0
-  moveDistance: 0
+  se: {fileID: 8300000, guid: d0639892b2175ec439a54cb7ae8f3698, type: 3}
 --- !u!61 &2461412266880644093
 BoxCollider2D:
   m_ObjectHideFlags: 0
