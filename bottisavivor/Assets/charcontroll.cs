@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class charcontroll : MonoBehaviour
 {
+    public GameObject Heart;//表示するハートを入れる変数
     private Animator anim = null;//アニメーターに接続する
     public float playerspeed;//プレイヤーの移動速度
     public float speedx;//縦方向への移動
