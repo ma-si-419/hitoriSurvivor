@@ -6,7 +6,7 @@ public class charcontroll : MonoBehaviour
 {
     public GameObject Heart;//表示するハートを入れる変数
     private Animator anim = null;//アニメーターに接続する
-    public static int playerspeed = 25;//プレイヤーの移動速度
+    public  static float playerspeed;//プレイヤーの移動速度
     public float speedx;//縦方向への移動
     public float speedy;//横方向への移動
     bool isleftFlag = false;//左右反転させるための変数
