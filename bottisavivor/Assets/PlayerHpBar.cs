@@ -36,126 +36,116 @@ public class PlayerHpBar : MonoBehaviour
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                    //wキーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("a") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                    //aキーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("s") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                    //sキーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("d") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                     //dキーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("right") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                    //→キーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("left") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                   //←キーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("up") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                   //↑キーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
+                StartCoroutine("hpbardodge");
                 cooldown = 0;
             }
             if (Input.GetKey("down") &&
                 Input.GetKeyDown(KeyCode.Space) &&
                 !isHide)                    //↓キーとspaceを同時に押した場合
             {
-                StartCoroutine("startdodge");
-
-                if (cooldown > 2500)
-                {
-                    if (Input.GetKeyDown(KeyCode.Space) && !isHide)//spaceと↓キーを入力した場合
-                    {
-                        StartCoroutine("hpbardodge");
-
-                        cooldown = 0;
-                    }
-                }
-                cooldown++;
+                StartCoroutine("hpbardodge");
+                cooldown = 0;
             }
+        }
+        IEnumerator hpbardodge()
+        {
+            isHide = true;
 
-            IEnumerator hpbardodge()
+            yield return new WaitForSeconds(0.5f);
+            isHide = false;
+        }
+        //ColliderオブジェクトのIsTriggerにチェック入れること。
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (isHide)
             {
-                isHide = true;
+                //PlayerDamageタグのオブジェクトに触れると発動
+                if (collision.gameObject.CompareTag("Enemy"))
+                {
+                    //ダメージは1
+                    int damage = 0;
+                    //Debug.Log("damage : " + damage);
 
-                yield return new WaitForSeconds(0.5f);
-                isHide = false;
+                    //現在のHPからダメージを引く
+                    currentHp = currentHp - damage;
+                    //Debug.Log("After currentHp : " + currentHp);
+
+                    //最大HPにおける現在のHPをSliderに反映。
+                    //int同士の割り算は小数点以下は0になるので、
+                    //(float)をつけてfloatの変数として振舞わせる。
+                    slider.value = (float)currentHp / (float)maxHp; ;
+                    //Debug.Log("slider.value : " + slider.value);
+                }
             }
-            //ColliderオブジェクトのIsTriggerにチェック入れること。
-            void OnTriggerEnter2D(Collider2D collision)
+            else if (!isHide)
             {
-                if (isHide)
+                //PlayerDamageタグのオブジェクトに触れると発動
+                if (collision.gameObject.CompareTag("Enemy"))
                 {
-                    //PlayerDamageタグのオブジェクトに触れると発動
-                    if (collision.gameObject.CompareTag("Enemy"))
-                    {
-                        //ダメージは1
-                        int damage = 0;
-                        //Debug.Log("damage : " + damage);
+                    //ダメージは1
+                    int damage = 1;
+                    //Debug.Log("damage : " + damage);
 
-                        //現在のHPからダメージを引く
-                        currentHp = currentHp - damage;
-                        //Debug.Log("After currentHp : " + currentHp);
+                    //現在のHPからダメージを引く
+                    currentHp = currentHp - damage;
+                    //Debug.Log("After currentHp : " + currentHp);
 
-                        //最大HPにおける現在のHPをSliderに反映。
-                        //int同士の割り算は小数点以下は0になるので、
-                        //(float)をつけてfloatの変数として振舞わせる。
-                        slider.value = (float)currentHp / (float)maxHp; ;
-                        //Debug.Log("slider.value : " + slider.value);
-                    }
+                    //最大HPにおける現在のHPをSliderに反映。
+                    //int同士の割り算は小数点以下は0になるので、
+                    //(float)をつけてfloatの変数として振舞わせる。
+                    slider.value = (float)currentHp / (float)maxHp; ;
+                    //Debug.Log("slider.value : " + slider.value);
                 }
-                else if (!isHide)
-                {
-                    //PlayerDamageタグのオブジェクトに触れると発動
-                    if (collision.gameObject.CompareTag("Enemy"))
-                    {
-                        //ダメージは1
-                        int damage = 1;
-                        //Debug.Log("damage : " + damage);
-
-                        //現在のHPからダメージを引く
-                        currentHp = currentHp - damage;
-                        //Debug.Log("After currentHp : " + currentHp);
-
-                        //最大HPにおける現在のHPをSliderに反映。
-                        //int同士の割り算は小数点以下は0になるので、
-                        //(float)をつけてfloatの変数として振舞わせる。
-                        slider.value = (float)currentHp / (float)maxHp; ;
-                        //Debug.Log("slider.value : " + slider.value);
-                    }
-                }
-                if(currentHp == 0)
-                {
-                    SceneManager.LoadScene("GameOverScene");
-                }
+            }
+            if (currentHp == 0)
+            {
+                SceneManager.LoadScene("GameOverScene");
             }
         }
     }
 }
+
 
 
