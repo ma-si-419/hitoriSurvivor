@@ -17,6 +17,9 @@ public class PlayerLevel : MonoBehaviour
     {
         //敵の動きを戻す
         EnemyController.EnemyMove = 100;
+        ToughEnemyController.ToughEnemyMove = 150;
+        FastEnemyController.FastEnemyMove = 1;
+        BossController.BossStop = 1;
         //イメージの非表示
         image.SetActive(false);
         //ボタンの非表示

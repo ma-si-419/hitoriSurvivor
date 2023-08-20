@@ -10,6 +10,7 @@ public class FastEnemyController : MonoBehaviour
     int enemyHP = 1;
     int damage = 1;
     bool isleftFlag;
+    public static int FastEnemyMove = 1;
     Vector3 Enemypos;
     public GameObject EXPPrefab;
     public GameObject DeathEffect;
@@ -42,7 +43,7 @@ public class FastEnemyController : MonoBehaviour
         //自分自身の座標をとる
         Enemypos = this.transform.position;
         //自分自身をプレイヤーに向けて移動
-        this.transform.position += Player;
+        this.transform.position += Player / FastEnemyMove;
 
         //敵のHPが0になったとき消滅させる
         if (enemyHP <= 0)

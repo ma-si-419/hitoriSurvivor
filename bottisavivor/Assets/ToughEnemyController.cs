@@ -9,6 +9,7 @@ public class ToughEnemyController : MonoBehaviour
     int enemyHP = 5;
     int damage = 1;
     bool isleftFlag;
+    public static int ToughEnemyMove = 150;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class ToughEnemyController : MonoBehaviour
         Player = Enemy.transform.position - this.transform.position;
         Player = Player.normalized;
         //自分自身をプレイヤーに向けて移動
-        this.transform.position += Player / 150;
+        this.transform.position += Player / ToughEnemyMove;
 
         if (Player.x < 0)
         {
