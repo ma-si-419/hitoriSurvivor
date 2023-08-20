@@ -27,8 +27,9 @@ public class BattleTime : MonoBehaviour
     GameObject BossEntry;
     int EventNum;//イベント用の変数
     int RandomPlace;//イベントで使用する変数
-    bool EventFlag;
+    bool isEventFlag;
     int EventTime; //イベントの時間を計測する変数
+    bool isBossFlag;
     void Start()
     {
 
@@ -39,12 +40,12 @@ public class BattleTime : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (battleTime % 120 == 0 && EventFlag == false)
+        if (battleTime % 120 == 0 && isEventFlag == false)
         {
             EventNum += 1;
-            EventFlag = true;
+            isEventFlag = true;
         }
-        if (EventFlag == true)
+        if (isEventFlag == true)
         {
             EventTime += 1;
         }
@@ -62,7 +63,7 @@ public class BattleTime : MonoBehaviour
                 }
             case 1:
                 {
-                    if (EventFlag)
+                    if (isEventFlag)
                     {
 
                         count++;
@@ -94,13 +95,13 @@ public class BattleTime : MonoBehaviour
                         {
                             count = 0;
                             EventTime = 0;
-                            EventFlag = false;
+                            isEventFlag = false;
                         }
                     }
                     break;
                 }
             case 2:
-                if (EventFlag)
+                if (isEventFlag)
                 {
 
                     count++;
@@ -133,17 +134,18 @@ public class BattleTime : MonoBehaviour
                         count = 0;
                         EventNum = 0;
                         EventTime = 0;
-                        EventFlag = false;
+                        isEventFlag = false;
                     }
                 }
                 break;
         }
 
         //ボスの召喚
-        if (battleTime == 300)
+        if (battleTime == 300 && isBossFlag == false)
         {
             BossEntry = Instantiate(Boss1) as GameObject;
             BossEntry.transform.position = new Vector3(0.0f, 46.0f, 0.0f);
+            isBossFlag = true;
         }
         if (battleTime == 0)
         {
