@@ -112,7 +112,7 @@ public class PlayerHpBar : MonoBehaviour
                 if (isHide)
                 {
                     //PlayerDamageタグのオブジェクトに触れると発動
-                    if (collision.gameObject.CompareTag("PlayerDamage"))
+                    if (collision.gameObject.CompareTag("Enemy"))
                     {
                         //ダメージは1
                         int damage = 0;
@@ -132,7 +132,7 @@ public class PlayerHpBar : MonoBehaviour
                 else if (!isHide)
                 {
                     //PlayerDamageタグのオブジェクトに触れると発動
-                    if (collision.gameObject.CompareTag("PlayerDamage"))
+                    if (collision.gameObject.CompareTag("Enemy"))
                     {
                         //ダメージは1
                         int damage = 1;
