@@ -21,5 +21,6 @@ public class SubController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
     }
 }

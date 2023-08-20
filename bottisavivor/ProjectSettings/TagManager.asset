@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EXP
   - Attack
+  - SubAttack
   layers:
   - Default
   - TransparentFX

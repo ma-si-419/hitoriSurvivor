@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     Vector3 Player;
     GameObject Enemy;
-    int enemyHP = 3;
+    int enemyHP = 5;
     public static  int damage = 1;
     public GameObject EXPPrefab;
     public GameObject DeathEffect;
@@ -63,6 +63,10 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack"))
         {
             enemyHP -= damage;
+        }
+        else if (collision.gameObject.CompareTag("SubAttack"))
+        {
+            enemyHP -= 1;
         }
     }
 

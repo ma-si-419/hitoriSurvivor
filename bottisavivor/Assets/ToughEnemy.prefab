@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bcb9d57f8115348b82b579f80ec466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EXPPrefab: {fileID: 8044592663350219194, guid: fab4d89a7a433dd45bc37cfe53cb3202, type: 3}
+  DeathEffect: {fileID: 8888759963736542005, guid: c277039e7be5b0849ba4df1f269b427e, type: 3}
 --- !u!61 &3323204105245325505
 BoxCollider2D:
   m_ObjectHideFlags: 0
