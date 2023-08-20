@@ -25,10 +25,6 @@ public class LevelUp : MonoBehaviour
 
     //レベルアップ時のボーナス
     public int BonusAttack = 1;
-    //サブ武器カウント
-    public static int count = 0;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +53,18 @@ public class LevelUp : MonoBehaviour
             slider.value = 0;
             Time.timeScale = 0;
             image.SetActive(true);
-            SelectBottun1.SetActive(true);
-            SelectBottun2.SetActive(true);
-            PlayerLevelUP.SetActive(true);
-            count++;
-        }
+            if (SubSelectButton1.SubAttackCount < 5)
+            {
+                SelectBottun1.SetActive(true);
+            }
+            if (SubSelectButton2.SubAttackCount < 5)
+            {
+                SelectBottun2.SetActive(true);
+            }
+            if (PlayerLevel.PlayerLevelCount < 5)
+            {
+                PlayerLevelUP.SetActive(true);
+            }            
+        }        
     }
 }
