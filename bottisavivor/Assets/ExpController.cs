@@ -14,9 +14,15 @@ public class ExpController : MonoBehaviour
     double Distance; //
     bool isFlag;
     int count;
+    // ぶつかった時の音
+    public AudioClip se;
+    // AudioClip再生用
+    AudioSource audiosource1;
 
     void Start()
     {
+        // AudioSourceコンポーネント取得
+        audiosource1 = GetComponent<AudioSource>();
         isFlag = false;
         Getpos = 20;
     }
@@ -52,6 +58,7 @@ public class ExpController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(se, transform.position);
             Destroy(this.gameObject);
         }
     }
