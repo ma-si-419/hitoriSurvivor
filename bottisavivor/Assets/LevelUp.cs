@@ -43,23 +43,6 @@ public class LevelUp : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (addText == 1 && slider.value >= MaxXP)
-        {            
-            EnemyController.damage += BonusAttack;
-            EnemyController.EnemyMove = 10000;
-            //変数addTextを文字列に変換し、text.textに代入＝表示する文章を変更
-            LevelText.text = "Lv." + addText.ToString();
-            //変数addTextを1加算
-            addText = addText + 1;
-            slider.value = 0;
-            Time.timeScale = 0;
-            image.SetActive(true);
-            SelectBottun1.SetActive(true);
-            SelectBottun2.SetActive(true);
-            count++;
-        }
-
         //slider.value = 現在のXP
         if (slider.value >= MaxXP)
         {
@@ -72,40 +55,8 @@ public class LevelUp : MonoBehaviour
             slider.value = 0;
             Time.timeScale = 0;
             image.SetActive(true);
-            count++;
-        }
-
-        if (addText == 2 && slider.value >= MaxXP && SubSelectButton1.SubAttackCount == 1)
-        {
-            
-            EnemyController.damage += BonusAttack;
-            EnemyController.EnemyMove = 10000;
-            //変数addTextを文字列に変換し、text.textに代入＝表示する文章を変更
-            LevelText.text = "Lv." + addText.ToString();
-            //変数addTextを1加算
-            addText = addText + 1;
-            slider.value = 0;
-            Time.timeScale = 0;
-            image.SetActive(true);
-            SelectBottun1.SetActive(false);
-            SelectBottun2.SetActive(true);
-            count++;
-        }
-
-        if (addText == 2 && slider.value >= MaxXP && SubSelectButton2.SubAttackCount == 1)
-        {
-            
-            EnemyController.damage += BonusAttack;
-            EnemyController.EnemyMove = 10000;
-            //変数addTextを文字列に変換し、text.textに代入＝表示する文章を変更
-            LevelText.text = "Lv." + addText.ToString();
-            //変数addTextを1加算
-            addText = addText + 1;
-            slider.value = 0;
-            Time.timeScale = 0;
-            image.SetActive(true);
             SelectBottun1.SetActive(true);
-            SelectBottun2.SetActive(false);
+            SelectBottun2.SetActive(true);
             count++;
         }
     }
