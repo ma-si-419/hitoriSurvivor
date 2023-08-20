@@ -20,7 +20,61 @@ public class SubAttack2 : MonoBehaviour
             SubAttack.SetActive(false);
             SubAttackBreak.SetActive(false);
         }
-        if (SubSelectButton2.SubAttackCount >= 1)
+        else if (SubSelectButton2.SubAttackCount == 1)
+        {
+            if (span < 45)
+            {
+                SubAttack.SetActive(true);
+                SubAttackBreak.SetActive(false);
+            }
+            else if (span < 225 && span > 45)
+            {
+                SubAttack.SetActive(false);
+                SubAttackBreak.SetActive(true);
+            }
+            else if (span > 225)
+            {
+                span = 0;
+            }
+            span++;
+        }
+        else if (SubSelectButton2.SubAttackCount == 2)
+        {
+            if (span < 45)
+            {
+                SubAttack.SetActive(true);
+                SubAttackBreak.SetActive(false);
+            }
+            else if (span < 180 && span > 45)
+            {
+                SubAttack.SetActive(false);
+                SubAttackBreak.SetActive(true);
+            }
+            else if (span > 180)
+            {
+                span = 0;
+            }
+            span++;
+        }
+        else if (SubSelectButton2.SubAttackCount == 3)
+        {
+            if (span < 45)
+            {
+                SubAttack.SetActive(true);
+                SubAttackBreak.SetActive(false);
+            }
+            else if (span < 135 && span > 45)
+            {
+                SubAttack.SetActive(false);
+                SubAttackBreak.SetActive(true);
+            }
+            else if (span > 135)
+            {
+                span = 0;
+            }
+            span++;
+        }
+        else if (SubSelectButton2.SubAttackCount == 4)
         {
             if (span < 45)
             {
@@ -37,6 +91,11 @@ public class SubAttack2 : MonoBehaviour
                 span = 0;
             }
             span++;
+        }
+        else if (SubSelectButton2.SubAttackCount >= 5)
+        {
+            SubAttack.SetActive(true);
+            SubAttackBreak.SetActive(false);
         }
     }
 }
