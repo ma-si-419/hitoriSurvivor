@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class SubSelectButton1 : MonoBehaviour
 {
-    SubAttack SubAttack;
+    
     //武器選択ボタンの追加
     public GameObject SelectButton1;
     public GameObject SelectButton2;
+    public GameObject PlayerLevelUP;
     //イメージの追加
     public GameObject image;
     public GameObject SubAttack1;
@@ -23,6 +24,8 @@ public class SubSelectButton1 : MonoBehaviour
         //ボタンの非表示
         SelectButton1.SetActive(false);
         SelectButton2.SetActive(false);
+        PlayerLevelUP.SetActive(false);
+
         //ポーズを解除する
         Time.timeScale = 1;
         SubAttackCount++;

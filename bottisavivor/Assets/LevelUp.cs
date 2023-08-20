@@ -18,7 +18,8 @@ public class LevelUp : MonoBehaviour
     public GameObject image;
     //武器選択ボタンの追加
     public GameObject SelectBottun1;
-    public GameObject SelectBottun2;   
+    public GameObject SelectBottun2;
+    public GameObject PlayerLevelUP;
     //敵の追加
     public GameObject MainEnemyPrefab;
 
@@ -36,6 +37,7 @@ public class LevelUp : MonoBehaviour
         image.SetActive(false);
         SelectBottun1.SetActive(false);
         SelectBottun2.SetActive(false);
+        PlayerLevelUP.SetActive(false);
         //スライダーの現在値を入れる
         slider = GameObject.Find("SliderXP").GetComponent<Slider>();
     }
@@ -57,6 +59,7 @@ public class LevelUp : MonoBehaviour
             image.SetActive(true);
             SelectBottun1.SetActive(true);
             SelectBottun2.SetActive(true);
+            PlayerLevelUP.SetActive(true);
             count++;
         }
     }
