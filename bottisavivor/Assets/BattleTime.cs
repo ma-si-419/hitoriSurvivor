@@ -14,7 +14,9 @@ public class BattleTime : MonoBehaviour
     public int battleTime;
     [SerializeField, Header("制限時間の表示")]
     public TMP_Text battleTimeText;
-    [SerializeField] GameObject text;
+    [SerializeField] GameObject text;     //テキストを表示させる際に使用する変数
+    [SerializeField] GameObject BossText; //ボスが登場する際に使用するテキスト
+
     private int currentTime;              // 現在の残り時間（不要な場合は宣言しない）
     private float timer;                  // 時間計測用
     public GameObject Boss1;              //一人目のボス
@@ -141,11 +143,21 @@ public class BattleTime : MonoBehaviour
         }
 
         //ボスの召喚
+        if(battleTime == 320)
+        {
+            BossText.SetActive(true);
+            isBossFlag = false;
+        }
         if (battleTime == 300 && isBossFlag == false)
         {
             BossEntry = Instantiate(Boss1) as GameObject;
             BossEntry.transform.position = new Vector3(0.0f, 46.0f, 0.0f);
             isBossFlag = true;
+        }
+        if(battleTime == 20)
+        {
+            BossText.SetActive(true);
+            isBossFlag = false;
         }
         if (battleTime == 0)
         {
