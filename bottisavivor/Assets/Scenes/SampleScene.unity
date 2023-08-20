@@ -485,7 +485,7 @@ MonoBehaviour:
   battleTime: 320
   battleTimeText: {fileID: 281701689}
   text: {fileID: 1024959801}
-  BossText: {fileID: 0}
+  BossText: {fileID: 1046811483}
   Boss1: {fileID: 5999738222598332659, guid: 442cf5d979819f349b1e27dce1f2c593, type: 3}
   Boss2: {fileID: 0}
   EnemyPrefab: {fileID: 1021116012171792837, guid: 83aff5b6f381f60448497a6ecb52967b, type: 3}
@@ -1617,6 +1617,7 @@ GameObject:
   - component: {fileID: 1046811486}
   - component: {fileID: 1046811485}
   - component: {fileID: 1046811487}
+  - component: {fileID: 1046811488}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1837,6 +1838,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1046811488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046811483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00bd0377c8020c4f941d4953350b0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1077485816
 GameObject:
   m_ObjectHideFlags: 0
