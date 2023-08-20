@@ -7,8 +7,7 @@ public class FastEnemyController : MonoBehaviour
     
     Vector3 Player;
     GameObject Enemy;
-    int enemyHP = 1;
-    int damage = 1;
+    int enemyHP = 3;
     bool isleftFlag;
     public static int FastEnemyMove = 1;
     Vector3 Enemypos;
@@ -65,7 +64,11 @@ public class FastEnemyController : MonoBehaviour
         //çUåÇÇ…ìñÇΩÇ¡ÇΩìGÇ…1É_ÉÅÅ[ÉW
         if (collision.gameObject.CompareTag("Attack"))
         {
-            enemyHP -= damage;
+            enemyHP -= EnemyController.damage;
+        }
+        else if (collision.gameObject.CompareTag("SubAttack"))
+        {
+            enemyHP -= 1;
         }
     }
 }

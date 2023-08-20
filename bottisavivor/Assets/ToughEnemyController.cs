@@ -6,8 +6,9 @@ public class ToughEnemyController : MonoBehaviour
 {
     Vector3 Player;
     GameObject Enemy;
-    int enemyHP = 5;
-    int damage = 1;
+    public GameObject EXPPrefab;
+    public GameObject DeathEffect;
+    int enemyHP = 10;
     bool isleftFlag;
     public static int ToughEnemyMove = 150;
 
@@ -47,6 +48,8 @@ public class ToughEnemyController : MonoBehaviour
         if (enemyHP == 0)
         {
             Destroy(this.gameObject);
+            Instantiate(EXPPrefab, transform.position, Quaternion.identity);
+            Instantiate(DeathEffect, transform.position, Quaternion.identity);
         }
 
     }
@@ -55,7 +58,11 @@ public class ToughEnemyController : MonoBehaviour
         //çUåÇÇ…ìñÇΩÇ¡ÇΩìGÇ…1É_ÉÅÅ[ÉW
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            enemyHP -= damage;
+            enemyHP -= EnemyController.damage;
+        }
+        else if (collision.gameObject.CompareTag("SubAttack"))
+        {
+            enemyHP -= 1;
         }
     }
 }

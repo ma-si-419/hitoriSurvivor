@@ -3426,7 +3426,7 @@ GameObject:
   - component: {fileID: 1929741865}
   m_Layer: 0
   m_Name: "\u30D0\u30EA\u30A21"
-  m_TagString: Attack
+  m_TagString: SubAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
