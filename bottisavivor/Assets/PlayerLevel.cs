@@ -36,23 +36,23 @@ public class PlayerLevel : MonoBehaviour
     {        
         if (SubSelectButton2.SubAttackCount == 1)
         {
-            
+            charcontroll.playerspeed = 30;
         }
         else if (SubSelectButton2.SubAttackCount == 2)
         {
-           
+            charcontroll.playerspeed = 35;
         }
         else if (SubSelectButton2.SubAttackCount == 3)
         {
-            
+            charcontroll.playerspeed = 40;
         }
         else if (SubSelectButton2.SubAttackCount == 4)
         {
-            
+            charcontroll.playerspeed = 45;
         }
         else if (SubSelectButton2.SubAttackCount >= 5)
         {
-            
+            charcontroll.playerspeed = 50;
         }
     }
 }
