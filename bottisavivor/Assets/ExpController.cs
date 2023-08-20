@@ -14,8 +14,11 @@ public class ExpController : MonoBehaviour
     double Distance; //
     bool isFlag;
     int count;
+    public AudioClip EXPSe;
+
+
     void Start()
-    {
+    {        
         isFlag = false;
         Getpos = 20;
     }
@@ -52,6 +55,8 @@ public class ExpController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
+            AudioSource.PlayClipAtPoint(EXPSe, transform.position);
         }
     }
+
 }
