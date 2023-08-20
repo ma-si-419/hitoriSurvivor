@@ -17,6 +17,7 @@ public class BossController : MonoBehaviour
     int BossMove = 1;
     int count = 0;
     bool isleftFlag;
+    public static int BossStop = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +56,7 @@ public class BossController : MonoBehaviour
         else if (count < 100)
         {
             //ゆっくりプレイヤーから離れる（助走のようなもの）
-            this.transform.position += Player / 50;
+            this.transform.position += Player / 50 / BossStop;
 
             //左右の向きを変える
             if (Player.x > 0)
@@ -87,7 +88,7 @@ public class BossController : MonoBehaviour
             }
             this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
             //プレイヤーに対して突進する
-            this.transform.position += Player * 2;
+            this.transform.position += Player * 2 / BossStop;
             //マップ外に出そうになったら跳ね返る
             if (Enemypos.x < -200 || Enemypos.x > 200)
             {

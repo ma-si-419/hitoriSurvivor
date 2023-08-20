@@ -46,6 +46,9 @@ public class LevelUp : MonoBehaviour
         {
             EnemyController.damage += BonusAttack;
             EnemyController.EnemyMove = 10000;
+            ToughEnemyController.ToughEnemyMove = 10000;
+            FastEnemyController.FastEnemyMove = 10000;
+            BossController.BossStop = 10000;
             //•Ï”addText‚ğ•¶š—ñ‚É•ÏŠ·‚µAtext.text‚É‘ã“ü•\¦‚·‚é•¶Í‚ğ•ÏX
             LevelText.text = "Lv." + addText.ToString();
             //•Ï”addText‚ğ1‰ÁZ
