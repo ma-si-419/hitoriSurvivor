@@ -14,7 +14,6 @@ public class BossController : MonoBehaviour
     public GameObject DeathBoss;
     int enemyHP = 10;
     int damage = 1;
-    int BossMove = 1;
     int count = 0;
     bool isleftFlag;
     public static int BossStop = 1;

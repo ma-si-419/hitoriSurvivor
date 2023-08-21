@@ -13,7 +13,7 @@ public class PlayerHpBar : MonoBehaviour
 
     //hpbar無敵用の変数
     bool isHide = false;
-    int cooldown = 2500;
+    
 
     //Sliderを入れる
     public Slider slider;
