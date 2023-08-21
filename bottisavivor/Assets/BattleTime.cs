@@ -42,7 +42,7 @@ public class BattleTime : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (battleTime % 120 == 0 && isEventFlag == false)
+        if (battleTime % 120 == 0 && isEventFlag == false && battleTime > 1)
         {
             EventNum += 1;
             isEventFlag = true;
@@ -142,26 +142,14 @@ public class BattleTime : MonoBehaviour
                 break;
         }
 
-        //ボスの召喚
-        if(battleTime == 320)
-        {
-            BossText.SetActive(true);
-            isBossFlag = false;
-        }
-        if (battleTime == 300 && isBossFlag == false)
-        {
-            BossEntry = Instantiate(Boss1) as GameObject;
-            BossEntry.transform.position = new Vector3(0.0f, 46.0f, 0.0f);
-            isBossFlag = true;
-        }
         if(battleTime == 20)
         {
             BossText.SetActive(true);
             isBossFlag = false;
         }
-        if (battleTime == 0)
+        if (battleTime == 0 && isBossFlag == false)
         {
-            BossEntry = Instantiate(Boss2) as GameObject;
+            BossEntry = Instantiate(Boss1) as GameObject;
             BossEntry.transform.position = new Vector3(0.0f, 46.0f, 0.0f);
         }
         // 1秒経過ごとにtimerを0に戻し、battleTime(currentTime)を減算する

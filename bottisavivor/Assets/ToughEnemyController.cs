@@ -45,7 +45,7 @@ public class ToughEnemyController : MonoBehaviour
         this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
 
         //“G‚ÌHP‚ª0‚É‚È‚Á‚½‚Æ‚«Á–Å‚³‚¹‚é
-        if (enemyHP == 0)
+        if (enemyHP < 0)
         {
             Destroy(this.gameObject);
             Instantiate(EXPPrefab, transform.position, Quaternion.identity);
@@ -56,7 +56,7 @@ public class ToughEnemyController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //UŒ‚‚É“–‚½‚Á‚½“G‚É1ƒ_ƒ[ƒW
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Attack"))
         {
             enemyHP -= EnemyController.damage;
         }

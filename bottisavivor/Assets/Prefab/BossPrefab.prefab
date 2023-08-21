@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2342170523428332381}
   - component: {fileID: 1755108735429517520}
   - component: {fileID: -6561027374255461308}
+  - component: {fileID: -3678750130461724503}
   m_Layer: 0
   m_Name: BossPrefab
   m_TagString: PlayerDamage
@@ -169,3 +170,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3678750130461724503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999738222598332659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f0887c31c7b664e81a76ec9d78de5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,7 +15,7 @@ public class LastBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BossHp == 0) 
+        if (BossHp < 0) 
         {
             SceneManager.LoadScene("GameClearScene");
         }
