@@ -393,7 +393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10:00
+  m_text: 06:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2017c91cd299993488226509beb70102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleTime: 320
+  battleTime: 360
   battleTimeText: {fileID: 281701689}
   text: {fileID: 1024959801}
   BossText: {fileID: 1046811483}
@@ -1388,7 +1388,7 @@ GameObject:
   - component: {fileID: 1024959806}
   - component: {fileID: 1024959805}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DANGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1633,7 +1633,7 @@ GameObject:
   - component: {fileID: 1046811487}
   - component: {fileID: 1046811488}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WARNING
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2885,7 +2885,7 @@ GameObject:
   - component: {fileID: 1638495052}
   - component: {fileID: 1638495051}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
