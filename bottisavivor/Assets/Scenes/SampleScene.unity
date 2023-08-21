@@ -2358,7 +2358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heart: {fileID: 5864840746851415909, guid: 3a54198bb8358a14bbdb486fc4215719, type: 3}
-  playerspeed: 25
   speedx: 0
   speedy: 0
 --- !u!95 &1331443034
