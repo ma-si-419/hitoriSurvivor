@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     Vector3 Player;
     GameObject Enemy;
-    int enemyHP = 5;
+    int enemyHP = 4;
     public static  int damage = 1;
     public GameObject EXPPrefab;
     public GameObject DeathEffect;

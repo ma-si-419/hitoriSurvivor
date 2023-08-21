@@ -7,7 +7,7 @@ public class FastEnemyController : MonoBehaviour
     
     Vector3 Player;
     GameObject Enemy;
-    int enemyHP = 3;
+    int enemyHP = 2;
     bool isleftFlag;
     public static int FastEnemyMove = 1;
     Vector3 Enemypos;
