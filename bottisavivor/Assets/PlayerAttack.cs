@@ -11,84 +11,83 @@ public class PlayerAttack : MonoBehaviour
     Vector3 Attackpos;//çUåÇÇÃà íu
     Vector3 AttackLog;//ï€ë∂Ç∑ÇÈçUåÇÇÃà íu
     int time;
-    bool isup;
-    bool isdown;
-    bool isright;
-    bool isleft;
-    bool isButton;
-
+    bool isleftFlag;
+    bool isupFlag;
+    bool isrightFlag;
+    bool isdownFlag;
     void FixedUpdate()
     {
-        Debug.Log(isButton);
-        //Debug.Log(isup);
-        //Debug.Log(isdown);
-        //Debug.Log(isright);
-        //Debug.Log(isleft);
-        //Debug.Log("í Ç¡ÇƒÇÈ");
-
-        //        Mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//É}ÉEÉXÇÃç¿ïWÇÇ∆ÇÈ
         Playerpos = this.transform.position;                           //ÉvÉåÉCÉÑÅ[ÇÃç¿ïWÇÇ∆ÇÈ
         if (span > 50)
         {
-            isButton = false;
             Attack = Instantiate(AttackEffect) as GameObject;
-            if (Input.GetKey("w") || Input.GetKey("up"))//ê^è„Ç…çUåÇÇ∑ÇÈèÍçá
+
+            if (Input.GetKey("a") || Input.GetKey("left"))
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 0));//0âÒì]
-                Addpos.y = 20;
-                isup = true;
-                isButton = true;
+                isrightFlag = false;
+                isleftFlag = true;
             }
-            if (Input.GetKey("a") || Input.GetKey("left"))//ç∂Ç…çUåÇÇ∑ÇÈèÍçá
+            if (Input.GetKey("d") || Input.GetKey("right"))
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 90));//90ìxâÒì]
-                Addpos.x = -20;
-                isleft = true;
-                isButton = true;
+                isleftFlag = false;
+                isrightFlag = true;
             }
-            if (Input.GetKey("s") || Input.GetKey("down"))//ê^â∫Ç…çUåÇÇ∑ÇÈèÍçá
+            if(Input.GetKey("w") || Input.GetKey("up"))
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 180));//180ìxâÒì]
-                Addpos.y = -20;
-                isdown = true;
-                isButton = true;
+                isdownFlag = false;
+                isupFlag = true;
             }
-            if (Input.GetKey("d") || Input.GetKey("right"))//âEÇ…çUåÇÇ∑ÇÈèÍçá
+            if (Input.GetKey("s") || Input.GetKey("down"))
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 270));//270ìxâÒì]
-                Addpos.x = 20;
-                isright = true;
-                isButton = true;
+                isupFlag = false;
+                isdownFlag = true;
             }
-            if (isup && isleft)//ç∂è„Ç…çUåÇÇ∑ÇÈèÍçá
+            if (isleftFlag && isupFlag)//ç∂è„
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 315));//315ìxâÒì]
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 45));
+                Attack.transform.position = new Vector3(Playerpos.x - 20, Playerpos.y + 20, 0);
             }
-            else if (isleft && isdown)//ç∂â∫Ç…çUåÇÇ∑ÇÈèÍçá
+            else if (isleftFlag == false && isrightFlag == false &&isupFlag)//è„
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 225));//225ìxâÒì]
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.position = new Vector3(Playerpos.x, Playerpos.y + 20, 0);
             }
-            else if (isright && isdown)//âEâ∫Ç…çUåÇÇ∑ÇÈèÍçá
+            else if(isrightFlag && isupFlag)//âEè„
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 135));//135ìxâÒì]
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 315));
+                Attack.transform.position = new Vector3(Playerpos.x + 20, Playerpos.y + 20, 0);
             }
-            else if (isright && isup)//âEè„Ç…çUåÇÇ∑ÇÈèÍçá
+            else if(isrightFlag && isupFlag == false && isdownFlag == false)//âE
             {
-                Attack.transform.Rotate(new Vector3(0, 0, 45));//45ìxâÒì]
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 90));
+                Attack.transform.position = new Vector3(Playerpos.x + 20, Playerpos.y, 0);
             }
-            if (!isButton)
+            else if(isrightFlag && isdownFlag)//âEâ∫
             {
-                AttackLog = new Vector3(Addpos.x + Playerpos.x, Addpos.y + Playerpos.y, 0);
-                Attack.transform.position = new Vector3(Addpos.x + Playerpos.x, Addpos.y + Playerpos.y, 0);
-                Addpos = new Vector3(0, 0, 0);
-                isup = false;
-                isdown = false;
-                isright = false;
-                isleft = false;
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 225));
+                Attack.transform.position = new Vector3(Playerpos.x + 20, Playerpos.y - 20, 0);
             }
-            else
+            else if(isdownFlag && isrightFlag == false && isleftFlag == false)//â∫
             {
-                Attack.transform.position = new Vector3(Addpos.x + Playerpos.x, Addpos.y + Playerpos.y, 0);
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 180));
+                Attack.transform.position = new Vector3(Playerpos.x, Playerpos.y - 20, 0);
+            }
+            else if(isleftFlag && isdownFlag)//ç∂â∫
+            {
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 135));
+                Attack.transform.position = new Vector3(Playerpos.x - 20, Playerpos.y - 20, 0);
+            }
+            else if(isleftFlag && isupFlag == false && isdownFlag == false)//ç∂
+            {
+                Attack.transform.Rotate(new Vector3(0, 0, 0));
+                Attack.transform.Rotate(new Vector3(0, 0, 270));
+                Attack.transform.position = new Vector3(Playerpos.x - 20, Playerpos.y, 0);
             }
             span = 0;
         }

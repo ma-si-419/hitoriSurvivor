@@ -103,7 +103,7 @@ public class charcontroll : MonoBehaviour
 
         anim.SetBool("Run", isRun);//走るアニメーションを動かす
 
-        if (cooldown > 500)
+        if (cooldown > 300)
         {
 
             //ここから無敵時間と回避時間の追加
