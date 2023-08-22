@@ -3572,6 +3572,7 @@ MonoBehaviour:
   image: {fileID: 947857507}
   SelectBottun1: {fileID: 1962932084}
   SelectBottun2: {fileID: 556663450}
+  AttackLevelBoutton: {fileID: 1044285490}
   PlayerLevelUP: {fileID: 1354663465}
   MainEnemyPrefab: {fileID: 0}
   BonusAttack: 1

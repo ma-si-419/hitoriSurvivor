@@ -11,7 +11,7 @@ public class AttackLevel : MonoBehaviour
     public GameObject SelectButton3;
     //ƒCƒ[ƒW‚Ì’Ç‰Á
     public GameObject image;
-    public static int PlayerAttackLevel = 1;
+    public static int PlayerAttackLevel = 0;
     public void OnClick()
     {
         //“G‚Ì“®‚«‚ğ–ß‚·
@@ -36,6 +36,7 @@ public class AttackLevel : MonoBehaviour
     {
         if (PlayerAttackLevel == 1)
         {
+            
             EnemyController.damage = 2;
         }
         else if (PlayerAttackLevel == 2)

@@ -19,6 +19,7 @@ public class LevelUp : MonoBehaviour
     //•Ší‘I‘ğƒ{ƒ^ƒ“‚Ì’Ç‰Á
     public GameObject SelectBottun1;
     public GameObject SelectBottun2;
+    public GameObject AttackLevelBoutton;
     public GameObject PlayerLevelUP;
     //“G‚Ì’Ç‰Á
     public GameObject MainEnemyPrefab;
@@ -68,6 +69,10 @@ public class LevelUp : MonoBehaviour
             {
                 PlayerLevelUP.SetActive(true);
             }            
+            if (AttackLevel.PlayerAttackLevel < 6)
+            {
+                AttackLevelBoutton.SetActive(true);
+            }
         }        
     }
 }
