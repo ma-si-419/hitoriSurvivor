@@ -11,6 +11,7 @@ public class SubSelectButton2 : MonoBehaviour
     public GameObject SelectButton2;
     public GameObject SelectButton3;
     public GameObject PlayerLevelUP;
+
     //ÉCÉÅÅ[ÉWÇÃí«â¡
     public GameObject image;
     public GameObject SubAttack2;
