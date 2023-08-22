@@ -21,7 +21,7 @@ public class PlayerHpBar : MonoBehaviour
     void Start()
     {
         //Sliderを満タンにする
-        slider.value = 3;
+        slider.value = 5;
         //現在のHPと最大HPを同じにする
         currentHp = maxHp;
         //Debug.Log("Start currentHp : " + currentHp);

@@ -22,7 +22,7 @@ public class ToughEnemyController : MonoBehaviour
         //プレイヤーのオブジェクトを取得
         Enemy = GameObject.Find("player");
 
-        enemyHP = 5;
+        enemyHP = 15;
 
         Player = new Vector2();
 
@@ -51,12 +51,7 @@ public class ToughEnemyController : MonoBehaviour
         }
         //左右の向きを変える
         this.sprite.flipX = isleftFlag;
-        if (isdamageFlag && count < 10)//ノックバック処理
-        {
-            this.transform.position -= Player * 10;
-            count = 0;
-            isdamageFlag = false;
-        }
+      
         //敵のHPが0になったとき消滅させる
         if (enemyHP < 0)
         {
@@ -71,7 +66,6 @@ public class ToughEnemyController : MonoBehaviour
         //攻撃に当たった敵に1ダメージ
         if (collision.gameObject.CompareTag("Attack"))
         {
-            isdamageFlag = true;
             enemyHP -= EnemyController.damage;
         }
         else if (collision.gameObject.CompareTag("SubAttack"))

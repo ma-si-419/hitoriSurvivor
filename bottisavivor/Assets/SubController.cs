@@ -5,12 +5,18 @@ using UnityEngine;
 public class SubController : MonoBehaviour
 {
     Vector3 SubAttackPos;
+    int SubAttackLevel;
+    bool isFlag;
+    int count;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isFlag = false;
     }
-
+    void FixedUpdate()
+    {
+        count++;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +27,22 @@ public class SubController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
+        SubAttackLevel = SubSelectButton1.SubAttackCount;//ÉTÉuçUåÇÇÃÉåÉxÉãÇÇ∆ÇÈ
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (SubAttackLevel <= 5)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                isFlag = true;
+                if (count > 10)
+                {
+                    Destroy(this.gameObject);
+                    isFlag = false;
+                }
+            }
+        }
+    }
+
 }

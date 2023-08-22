@@ -72,7 +72,7 @@ public class BattleTime : MonoBehaviour
 
                         count++;
                         text.SetActive(true);
-                        if (count % 5 == 0)
+                        if (count % 10 == 0)
                         {
                             RandomPlace = Random.Range(0, 4);
                         }
@@ -139,6 +139,7 @@ public class BattleTime : MonoBehaviour
                         {
                             count = 0;
                             EventTime = 0;
+                            EventNum = 0;
                             isEventFlag = false;
                         }
                     }
