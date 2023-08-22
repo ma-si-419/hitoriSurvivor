@@ -34,23 +34,23 @@ public class PlayerLevel : MonoBehaviour
     
     void FixedUpdate()
     {        
-        if (SubSelectButton2.SubAttackCount == 1)
+        if (PlayerLevelCount == 1)
         {
             charcontroll.Move = 15;
         }
-        else if (SubSelectButton2.SubAttackCount == 2)
+        else if (PlayerLevelCount == 2)
         {
             charcontroll.Move = 20;
         }
-        else if (SubSelectButton2.SubAttackCount == 3)
+        else if (PlayerLevelCount == 3)
         {
             charcontroll.Move = 25;
         }
-        else if (SubSelectButton2.SubAttackCount == 4)
+        else if (PlayerLevelCount == 4)
         {
             charcontroll.Move = 30;
         }
-        else if (SubSelectButton2.SubAttackCount >= 5)
+        else if (PlayerLevelCount >= 5)
         {
             charcontroll.Move = 35;
         }
