@@ -23,12 +23,18 @@ public class LevelUp : MonoBehaviour
     //敵の追加
     public GameObject MainEnemyPrefab;
 
+    // レベルアップ時の音
+    public AudioClip se;
+    // AudioClip再生用
+    AudioSource audiosource1;
     //レベルアップ時のボーナス
     public int BonusAttack = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        // AudioSourceコンポーネント取得
+        audiosource1 = GetComponent<AudioSource>();
         //イメージとボタンを非表示にする
         image.SetActive(false);
         SelectBottun1.SetActive(false);
@@ -44,6 +50,7 @@ public class LevelUp : MonoBehaviour
         //slider.value = 現在のXP
         if (slider.value >= MaxXP)
         {
+            AudioSource.PlayClipAtPoint(se, transform.position);
             EnemyController.damage += BonusAttack;
             EnemyController.EnemyMove = 10000;
             ToughEnemyController.ToughEnemyMove = 10000;
