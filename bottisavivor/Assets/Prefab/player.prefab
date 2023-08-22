@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c7e1d7fd175404ab9f8eeb034fed81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerspeed: 25
+  Heart: {fileID: 0}
   speedx: 0
   speedy: 0
 --- !u!61 &1801909924080836069
@@ -186,8 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057d6df6f3b2f9547ac99cd664618324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  span: 0
-  AttackEffect: {fileID: 4137912760106286041, guid: 748ea8a5d1a8acf42be7bba824aa95bf, type: 3}
+  AttackEffect: {fileID: 2285420586051181822, guid: 5fd1c7f7dd64cf64495473d983ba41aa, type: 3}
 --- !u!114 &1801909924080836059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,5 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76584a69666b7d41bf7bd170f4b5b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectButton1: {fileID: 0}
+  SelectButton2: {fileID: 0}
+  image: {fileID: 0}
   span: 0
   SubAttack1: {fileID: 57172130659304839, guid: 917dbe68d3aea3e4ab0a8bf7ee852872, type: 3}

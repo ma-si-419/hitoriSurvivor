@@ -8,8 +8,15 @@ public class Button : MonoBehaviour
 
     public void OnClick()
     {
+        //敵の動きを戻す
         EnemyController.EnemyMove = 100;
+        ToughEnemyController.ToughEnemyMove = 150;
+        FastEnemyController.FastEnemyMove = 1;
+        BossController.BossStop = 1;
+        //イメージの非表示
         image.SetActive(false);
+
+        //ポーズを解除する
         Time.timeScale = 1;
     }
 

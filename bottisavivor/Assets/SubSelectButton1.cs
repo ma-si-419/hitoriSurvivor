@@ -9,6 +9,7 @@ public class SubSelectButton1 : MonoBehaviour
     //武器選択ボタンの追加
     public GameObject SelectButton1;
     public GameObject SelectButton2;
+    public GameObject SelectButton3;
     public GameObject PlayerLevelUP;
     //イメージの追加
     public GameObject image;
@@ -27,6 +28,7 @@ public class SubSelectButton1 : MonoBehaviour
         //ボタンの非表示
         SelectButton1.SetActive(false);
         SelectButton2.SetActive(false);
+        SelectButton3.SetActive(false);
         PlayerLevelUP.SetActive(false);
 
         //ポーズを解除する

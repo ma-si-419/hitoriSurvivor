@@ -12,11 +12,12 @@ public class BossController : MonoBehaviour
     Vector3 Enemypos;
     Vector3 Bulletpos;
     public GameObject DeathBoss;
-    int enemyHP = 10;
-    int damage = 1;
+    int enemyHP = 20;
+    int damage = 2;
     int count = 0;
     bool isleftFlag;
     public static int BossStop = 1;
+    SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class BossController : MonoBehaviour
 
         Player = new Vector2();
 
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -43,7 +45,7 @@ public class BossController : MonoBehaviour
         {
             isleftFlag = false;
         }
-        this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+        this.sprite.flipX = isleftFlag;
         if (count == 10)
         {
             //プレイヤーに向かうベクトルの作成
@@ -66,7 +68,7 @@ public class BossController : MonoBehaviour
             {
                 isleftFlag = false;
             }
-            this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+            this.sprite.flipX = isleftFlag;
         }
         else if (count == 100)
         {
@@ -85,7 +87,7 @@ public class BossController : MonoBehaviour
             {
                 isleftFlag = false;
             }
-            this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+            this.sprite.flipX = isleftFlag;
             //プレイヤーに対して突進する
             this.transform.position += Player * 2 / BossStop;
             //マップ外に出そうになったら跳ね返る
@@ -103,7 +105,7 @@ public class BossController : MonoBehaviour
                 {
                     isleftFlag = false;
                 }
-                this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+                this.sprite.flipX = isleftFlag;
             }
             if (Enemypos.y < -100 || Enemypos.y > 100)
             {
@@ -119,7 +121,7 @@ public class BossController : MonoBehaviour
                 {
                     isleftFlag = false;
                 }
-                this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+                this.sprite.flipX = isleftFlag;
             }
             if (count % 30 == 0)
             {
@@ -137,13 +139,13 @@ public class BossController : MonoBehaviour
 
 
         //敵のHPが0になったとき消滅させる
-        if (enemyHP == 0)
+        if (enemyHP <= 0)
         {
             Destroy(this.gameObject);
             Instantiate(DeathBoss, transform.position, Quaternion.identity);
         }
 
-        if (enemyHP == 0)
+        if (enemyHP <= 0)
         {
             SceneManager.LoadScene("GameClearScene");
         }
@@ -152,10 +154,14 @@ public class BossController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //攻撃に当たった敵に1ダメージ
-        if (collision.gameObject.CompareTag("Enemy"))
+        //攻撃に当たった敵にダメージ
+        if (collision.gameObject.CompareTag("Attack"))
         {
             enemyHP -= damage;
+        }
+        else if (collision.gameObject.CompareTag("SubAttack"))
+        {
+            enemyHP -= 1;
         }
     }
 }

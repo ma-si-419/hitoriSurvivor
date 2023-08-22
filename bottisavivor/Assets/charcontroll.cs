@@ -17,6 +17,8 @@ public class charcontroll : MonoBehaviour
     int hitPoint;   　//キャラクターのヒットポイント
     bool isHide;
 
+    SpriteRenderer sprite;
+
     bool isRun = false;
 
     ////回避行動、無敵時間用の変数
@@ -26,6 +28,8 @@ public class charcontroll : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();//アニメーションの変数
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
 
@@ -220,6 +224,6 @@ public class charcontroll : MonoBehaviour
         }
 
         //左右の向きを変える
-        this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+        this.sprite.flipX = isleftFlag;
     }
 }

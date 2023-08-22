@@ -16,14 +16,13 @@ public class EXPBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
 
+    }
     //ColliderオブジェクトのIsTriggerにチェックを入れること
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("EXP"))
-        {           
+        {
             //現在のXPと経験値を足す
             currentXP += EXP;
             //最大XPにおける現在のXPをSliderに反映。

@@ -1,19 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerLevel : MonoBehaviour
+public class AttackLevel : MonoBehaviour
 {
     //武器選択ボタンの追加
     public GameObject SelectButton1;
     public GameObject SelectButton2;
-    public GameObject SelectButton3;
     public GameObject SelectButton;
+    public GameObject SelectButton3;
     //イメージの追加
     public GameObject image;
-    public static int PlayerLevelCount = 0;
+    public static int PlayerAttackLevel = 1;
     public void OnClick()
     {
         //敵の動きを戻す
@@ -26,35 +24,44 @@ public class PlayerLevel : MonoBehaviour
         //ボタンの非表示
         SelectButton1.SetActive(false);
         SelectButton2.SetActive(false);
-        SelectButton3.SetActive(false);
         SelectButton.SetActive(false);
+        SelectButton3.SetActive(false);
         //ポーズを解除する
         Time.timeScale = 1;
-        PlayerLevelCount++;
+        PlayerAttackLevel++;
     }
 
-    
+
     void FixedUpdate()
-    {        
-        if (PlayerLevelCount == 1)
+    {
+        if (PlayerAttackLevel == 1)
         {
-            charcontroll.Move = 15;
+            EnemyController.damage = 2;
         }
-        else if (PlayerLevelCount == 2)
+        else if (PlayerAttackLevel == 2)
         {
-            charcontroll.Move = 20;
+            EnemyController.damage = 3;
+            PlayerAttack.span = 40;
         }
-        else if (PlayerLevelCount == 3)
+        else if (PlayerAttackLevel == 3)
         {
-            charcontroll.Move = 25;
+            EnemyController.damage = 4;
         }
-        else if (PlayerLevelCount == 4)
+        else if (PlayerAttackLevel == 4)
         {
-            charcontroll.Move = 30;
+            EnemyController.damage = 5;
+            PlayerAttack.span = 30;
+
         }
-        else if (PlayerLevelCount >= 5)
+        else if (PlayerAttackLevel >= 5)
         {
-            charcontroll.Move = 35;
+            EnemyController.damage = 6;
+
+        }
+        else if(PlayerAttackLevel >= 6)
+        {
+            EnemyController.damage = 7;
+            PlayerAttack.span = 20;
         }
     }
 }

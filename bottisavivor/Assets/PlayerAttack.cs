@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
-    public int span = 0;
+    public static int span = 50;
+    int count;
     public GameObject AttackEffect;
     GameObject Attack;
     Vector3 Addpos;//マウスの位置
@@ -15,12 +16,14 @@ public class PlayerAttack : MonoBehaviour
     bool isupFlag;
     bool isrightFlag;
     bool isdownFlag;
-    void start()
+    void Start()
     {
         isrightFlag = true;
         isupFlag = true;
         isleftFlag = false;
         isdownFlag = false;
+
+        span = 50;
     }
     void FixedUpdate()
     {
@@ -45,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
             isdownFlag = true;
         }
         Playerpos = this.transform.position;//プレイヤーの座標をとる
-        if (span > 50)
+        if (span < count)
         {
             Attack = Instantiate(AttackEffect) as GameObject;
 
@@ -73,9 +76,9 @@ public class PlayerAttack : MonoBehaviour
                 Attack.transform.Rotate(new Vector3(0, 0, 135));
                 Attack.transform.position = new Vector3(Playerpos.x - 15, Playerpos.y - 15, 0);
             }
-            span = 0;
+            count = 0;
         }
-        span++;
+        count++;
 
     }
 }

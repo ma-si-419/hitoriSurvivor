@@ -16,7 +16,6 @@ public class FastEnemyController : MonoBehaviour
     Vector3 KnockBack;
     bool isdamageFlag;
     int count;
-    int damage = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +81,7 @@ public class FastEnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack"))
         {
             isdamageFlag = true;
-            enemyHP -= damage;
+            enemyHP -= EnemyController.damage;
         }
         else if (collision.gameObject.CompareTag("SubAttack"))
         {

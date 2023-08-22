@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     public static int EnemyMove = 80;
     bool isdamageFlag;
     int count;
+    SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
 
         Player = new Vector2();
 
+        sprite = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
     {
@@ -61,7 +63,7 @@ public class EnemyController : MonoBehaviour
             isdamageFlag = false;
         }
         //¶‰E‚ÌŒü‚«‚ğ•Ï‚¦‚é
-        this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+        this.sprite.flipX = isleftFlag;
 
         //“G‚ÌHP‚ª0‚É‚È‚Á‚½‚Æ‚«Á–Å‚³‚¹‚é
         if (enemyHP <= 0)
@@ -70,12 +72,12 @@ public class EnemyController : MonoBehaviour
             Instantiate(EXPPrefab, transform.position, Quaternion.identity);
             Instantiate(DeathEffect, transform.position, Quaternion.identity);
         }
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //UŒ‚‚É“–‚½‚Á‚½“G‚É1ƒ_ƒ[ƒW
+        //UŒ‚‚É“–‚½‚Á‚½“G‚Éƒ_ƒ[ƒW
         if (collision.gameObject.CompareTag("Attack"))
         {
             isdamageFlag = true;

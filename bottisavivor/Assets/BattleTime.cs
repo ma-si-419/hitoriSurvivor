@@ -23,6 +23,7 @@ public class BattleTime : MonoBehaviour
     public GameObject Boss2;              //“ñl–Ú‚Ìƒ{ƒX
     public GameObject EnemyPrefab;        //’Êí‚ÌŽG‹›“G
     public GameObject FastEnemyPrefab;    //‘«‚Ì‘¬‚¢ŽG‹›“G
+    public GameObject ToughEnemyPrefab;
     Vector3 BossPlace;                    //ƒ{ƒX‚ÌoŒ»ˆÊ’u‚ÌÝ’è
     public GameObject BossExplosion;                //ƒ{ƒX‚ÌoŒ»‰‰o
     Vector3 EnemyPlace;                   //“G‚ÌoŒ»ˆÊ’u‚ÌÝ’è
@@ -71,6 +72,46 @@ public class BattleTime : MonoBehaviour
 
                         count++;
                         text.SetActive(true);
+                        if (count % 5 == 0)
+                        {
+                            RandomPlace = Random.Range(0, 4);
+                        }
+                        switch (RandomPlace)
+                        {
+                            case 0:
+                                EnemyPlace = new Vector3(-200, Random.Range(-150, 150), 0);//¶•ûŒü‚©‚ç“G‚ªoŒ»‚·‚é
+                                Instantiate(ToughEnemyPrefab, EnemyPlace, Quaternion.identity);
+                                break;
+                            case 1:
+                                EnemyPlace = new Vector3(200, Random.Range(-150, 150), 0);//‰E•ûŒü‚©‚ç“G‚ªoŒ»‚·‚é
+                                Instantiate(ToughEnemyPrefab, EnemyPlace, Quaternion.identity);
+                                break;
+                            case 2:
+                                EnemyPlace = new Vector3(Random.Range(-200, 200), 100, 0);//ã•ûŒü‚©‚ç“G‚ªoŒ»‚·‚é
+                                Instantiate(ToughEnemyPrefab, EnemyPlace, Quaternion.identity);
+                                break;
+                            case 3:
+                                EnemyPlace = new Vector3(Random.Range(-200, 200), -100, 0);
+                                Instantiate(ToughEnemyPrefab, EnemyPlace, Quaternion.identity);
+                                break;
+                        }
+                        if (count > 200)
+                        {
+                            count = 0;
+                            EventTime = 0;
+                            isEventFlag = false;
+                        }
+
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (isEventFlag)
+                    {
+
+                        count++;
+                        text.SetActive(true);
                         if (count % 60 == 0)
                         {
                             RandomPlace = Random.Range(0, 4);
@@ -103,54 +144,16 @@ public class BattleTime : MonoBehaviour
                     }
                     break;
                 }
-            case 2:
-                if (isEventFlag)
-                {
-
-                    count++;
-                    text.SetActive(true);
-                    if (count % 3 == 0)
-                    {
-                        RandomPlace = Random.Range(0, 4);
-                    }
-                    switch (RandomPlace)
-                    {
-                        case 0:
-                            EnemyPlace = new Vector3(-200, Random.Range(-150, 150), 0);//¶•ûŒü‚©‚ç“G‚ªoŒ»‚·‚é
-                            Instantiate(EnemyPrefab, EnemyPlace, Quaternion.identity);
-                            break;
-                        case 1:
-                            EnemyPlace = new Vector3(200, Random.Range(-150, 150), 0);//‰E•ûŒü‚©‚ç“G‚ªoŒ»‚·‚é
-                            Instantiate(EnemyPrefab, EnemyPlace, Quaternion.identity);
-                            break;
-                        case 2:
-                            EnemyPlace = new Vector3(Random.Range(-200, 200), 100, 0);//ã•ûŒü‚©‚ç“G‚ªoŒ»‚·‚é
-                            Instantiate(EnemyPrefab, EnemyPlace, Quaternion.identity);
-                            break;
-                        case 3:
-                            EnemyPlace = new Vector3(Random.Range(-200, 200), -100, 0);
-                            Instantiate(EnemyPrefab, EnemyPlace, Quaternion.identity);
-                            break;
-                    }
-                    if (count > 200)
-                    {
-                        count = 0;
-                        EventNum = 0;
-                        EventTime = 0;
-                        isEventFlag = false;
-                    }
-                }
-                break;
         }
 
-        if(battleTime == 10)
+        if (battleTime == 10)
         {
             BossText.SetActive(true);
             isBossFlag = false;
         }
         if (battleTime == 0 && isBossFlag == false)
         {
-            Instantiate(BossExplosion,new Vector3(0.0f, 46.0f, 0.0f), Quaternion.identity);
+            Instantiate(BossExplosion, new Vector3(0.0f, 46.0f, 0.0f), Quaternion.identity);
             BossEntry = Instantiate(Boss1) as GameObject;
             BossEntry.transform.position = new Vector3(0.0f, 46.0f, 0.0f);
             isBossFlag = true;

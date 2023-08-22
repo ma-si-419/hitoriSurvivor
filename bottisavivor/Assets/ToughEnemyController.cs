@@ -10,10 +10,11 @@ public class ToughEnemyController : MonoBehaviour
     public GameObject DeathEffect;
     int enemyHP = 10;
     bool isleftFlag;
-    int damage = 2;
     bool isdamageFlag = false;
     public static int ToughEnemyMove = 150;
     int count;
+
+    SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class ToughEnemyController : MonoBehaviour
 
         Player = new Vector2();
 
+        sprite = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
     {
@@ -48,10 +50,10 @@ public class ToughEnemyController : MonoBehaviour
             isleftFlag = false;
         }
         //左右の向きを変える
-        this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
+        this.sprite.flipX = isleftFlag;
         if (isdamageFlag && count < 10)//ノックバック処理
         {
-            this.transform.position -= Player * 5;
+            this.transform.position -= Player * 10;
             count = 0;
             isdamageFlag = false;
         }
@@ -70,7 +72,7 @@ public class ToughEnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack"))
         {
             isdamageFlag = true;
-            enemyHP -= damage;
+            enemyHP -= EnemyController.damage;
         }
         else if (collision.gameObject.CompareTag("SubAttack"))
         {

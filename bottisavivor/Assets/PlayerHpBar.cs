@@ -88,6 +88,10 @@ public class PlayerHpBar : MonoBehaviour
         }
         if (currentHp == 0)
         {
+            AttackLevel.PlayerAttackLevel = 0;
+            SubSelectButton2.SubAttackCount = 0;
+            SubSelectButton1.SubAttackCount = 0;
+            PlayerLevel.PlayerLevelCount = 0;
             SceneManager.LoadScene("GameOverScene");
         }
     }
