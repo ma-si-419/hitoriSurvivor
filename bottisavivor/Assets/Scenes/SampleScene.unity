@@ -646,7 +646,7 @@ MonoBehaviour:
   SelectButton2: {fileID: 556663450}
   SelectButton3: {fileID: 1044285490}
   PlayerLevelUP: {fileID: 1354663465}
-  image: {fileID: 1044285490}
+  image: {fileID: 947857507}
   SubAttack2: {fileID: 0}
 --- !u!114 &556663453
 MonoBehaviour:

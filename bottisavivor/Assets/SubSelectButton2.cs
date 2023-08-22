@@ -30,6 +30,7 @@ public class SubSelectButton2 : MonoBehaviour
         SelectButton2.SetActive(false);
         SelectButton3.SetActive(false);
         PlayerLevelUP.SetActive(false);
+        
         //ƒ|[ƒY‚ğ‰ğœ‚·‚é
         Time.timeScale = 1;
         SubAttackCount++;
