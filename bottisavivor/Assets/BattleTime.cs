@@ -24,6 +24,7 @@ public class BattleTime : MonoBehaviour
     public GameObject EnemyPrefab;        //通常の雑魚敵
     public GameObject FastEnemyPrefab;    //足の速い雑魚敵
     Vector3 BossPlace;                    //ボスの出現位置の設定
+    public GameObject BossExplosion;                //ボスの出現演出
     Vector3 EnemyPlace;                   //敵の出現位置の設定
     int count;                            //出現タイミングの調整
     GameObject BossEntry;
@@ -142,15 +143,17 @@ public class BattleTime : MonoBehaviour
                 break;
         }
 
-        if(battleTime == 20)
+        if(battleTime == 10)
         {
             BossText.SetActive(true);
             isBossFlag = false;
         }
         if (battleTime == 0 && isBossFlag == false)
         {
+            Instantiate(BossExplosion,new Vector3(0.0f, 46.0f, 0.0f), Quaternion.identity);
             BossEntry = Instantiate(Boss1) as GameObject;
             BossEntry.transform.position = new Vector3(0.0f, 46.0f, 0.0f);
+            isBossFlag = true;
         }
         // 1秒経過ごとにtimerを0に戻し、battleTime(currentTime)を減算する
         if (timer >= 1)

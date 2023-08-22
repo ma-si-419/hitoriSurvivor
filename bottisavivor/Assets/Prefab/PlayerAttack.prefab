@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2285420586051181819}
   - component: {fileID: 2285420586051181816}
   - component: {fileID: 2285420586051181817}
-  - component: {fileID: 8245704137054004964}
   - component: {fileID: 5011206775110672134}
   - component: {fileID: -8543467370554965915}
   - component: {fileID: -8477603624833436443}
+  - component: {fileID: 2747494848318215821}
   m_Layer: 0
   m_Name: PlayerAttack
   m_TagString: Attack
@@ -109,22 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &8245704137054004964
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2285420586051181822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.05197791, y: -1.019259}
-  serializedVersion: 2
-  m_Radius: 0.54259783
 --- !u!50 &5011206775110672134
 Rigidbody2D:
   serializedVersion: 4
@@ -254,3 +238,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &2747494848318215821
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285420586051181822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005736828, y: 0.02019605}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.2, y: 1.2}
+    newSize: {x: 1.2, y: 1.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0399398, y: 1.559229}
+  m_EdgeRadius: 0

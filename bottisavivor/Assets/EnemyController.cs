@@ -8,11 +8,13 @@ public class EnemyController : MonoBehaviour
     Vector3 Player;
     GameObject Enemy;
     int enemyHP = 4;
-    public static  int damage = 2;
+    public static int damage = 2;
     public GameObject EXPPrefab;
     public GameObject DeathEffect;
     bool isleftFlag;
     public static int EnemyMove = 80;
+    bool isdamageFlag;
+    int count;
 
     // Start is called before the first frame update
     void Start()
@@ -24,25 +26,39 @@ public class EnemyController : MonoBehaviour
         Player = new Vector2();
 
     }
-
+    void FixedUpdate()
+    {
+        if (isdamageFlag)
+        {
+            count++;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        //プレイヤーに向かうベクトルの作成
-        Player = Enemy.transform.position - this.transform.position;
-        Player = Player.normalized;
-        //自分自身をプレイヤーに向けて移動
-        this.transform.position += Player / EnemyMove;
-        if (Player.x < 0)
+        if (!isdamageFlag)
         {
-            isleftFlag = true;
+
+            //プレイヤーに向かうベクトルの作成
+            Player = Enemy.transform.position - this.transform.position;
+            Player = Player.normalized;
+            //自分自身をプレイヤーに向けて移動
+            this.transform.position += Player / EnemyMove;
+            if (Player.x < 0)
+            {
+                isleftFlag = true;
+            }
+            else
+            {
+                isleftFlag = false;
+            }
         }
-        else
+        if (isdamageFlag && count < 10)//ノックバック処理
         {
-            isleftFlag = false;
+            this.transform.position -= Player * 5;
+            count = 0;
+            isdamageFlag = false;
         }
         //左右の向きを変える
         this.GetComponent<SpriteRenderer>().flipX = isleftFlag;
@@ -62,6 +78,7 @@ public class EnemyController : MonoBehaviour
         //攻撃に当たった敵に1ダメージ
         if (collision.gameObject.CompareTag("Attack"))
         {
+            isdamageFlag = true;
             enemyHP -= damage;
         }
         else if (collision.gameObject.CompareTag("SubAttack"))

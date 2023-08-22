@@ -7,12 +7,16 @@ public class FastEnemyController : MonoBehaviour
     
     Vector3 Player;
     GameObject Enemy;
-    int enemyHP = 2;
+    int enemyHP = 1;
     bool isleftFlag;
     public static int FastEnemyMove = 1;
     Vector3 Enemypos;
     public GameObject EXPPrefab;
     public GameObject DeathEffect;
+    Vector3 KnockBack;
+    bool isdamageFlag;
+    int count;
+    int damage = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,11 +45,24 @@ public class FastEnemyController : MonoBehaviour
     {
         //自分自身の座標をとる
         Enemypos = this.transform.position;
+        
         //自分自身をプレイヤーに向けて移動
         this.transform.position += Player / FastEnemyMove;
+        if(isdamageFlag)
+        {
+            count++;
+        }
+        if (isdamageFlag && count < 10)//ノックバック処理
+        {
+            KnockBack = Enemy.transform.position - this.transform.position;
+            KnockBack = KnockBack.normalized;
+            this.transform.position -= KnockBack * 5;
+            count = 0;
+            isdamageFlag = false;
+        }
 
         //敵のHPが0になったとき消滅させる
-        if (enemyHP <= 0)
+        if (enemyHP < 0)
         {
             Destroy(this.gameObject);
             Instantiate(EXPPrefab, transform.position, Quaternion.identity);
@@ -64,7 +81,8 @@ public class FastEnemyController : MonoBehaviour
         //攻撃に当たった敵に1ダメージ
         if (collision.gameObject.CompareTag("Attack"))
         {
-            enemyHP -= EnemyController.damage;
+            isdamageFlag = true;
+            enemyHP -= damage;
         }
         else if (collision.gameObject.CompareTag("SubAttack"))
         {
