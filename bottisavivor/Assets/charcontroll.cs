@@ -201,7 +201,7 @@ public class charcontroll : MonoBehaviour
     IEnumerator Playerdodge()
     {
         isHide = true;
-        Debug.Log("playerdodge");
+        //Debug.Log("playerdodge");
         yield return new WaitForSeconds(0.2f);
         isHide = false;
     }

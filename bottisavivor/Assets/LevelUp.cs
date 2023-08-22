@@ -11,7 +11,7 @@ public class LevelUp : MonoBehaviour
     public TMP_Text LevelText;
     //Slider‚ğ“ü‚ê‚é
     public Slider slider;
-    public int addText = 1;
+    public static int addText = 1;
     //Å‘åXP
     int MaxXP = 30;
     //ƒCƒ[ƒW‚Ì’Ç‰Á
