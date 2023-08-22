@@ -32,8 +32,9 @@ public class AttackLevel : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
+        Debug.Log(PlayerAttackLevel);
         if (PlayerAttackLevel == 1)
         {
             EnemyController.damage = 2;
