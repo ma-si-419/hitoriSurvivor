@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     public static int EnemyMove = 80;
     bool isdamageFlag;
     int count;
+    int damageLevel;
     SpriteRenderer sprite;
 
     // Start is called before the first frame update
@@ -34,11 +35,42 @@ public class EnemyController : MonoBehaviour
         {
             count++;
         }
+        Debug.Log(damage);
     }
 
     // Update is called once per frame
     void Update()
     {
+        damageLevel = AttackLevel.PlayerAttackLevel;
+        if (damageLevel == 1)
+        {
+            damage = 2;
+        }
+        else if (damageLevel == 2)
+        {
+            damage = 3;
+            PlayerAttack.span = 40;
+        }
+        else if (damageLevel == 3)
+        {
+            damage = 4;
+        }
+        else if (damageLevel == 4)
+        {
+            damage = 5;
+            PlayerAttack.span = 30;
+
+        }
+        else if (damageLevel == 5)
+        {
+            damage = 6;
+
+        }
+        else if (damageLevel == 6)
+        {
+            damage = 7;
+            PlayerAttack.span = 20;
+        }
         if (!isdamageFlag)
         {
 
