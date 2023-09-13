@@ -6,13 +6,8 @@ public class SubController : MonoBehaviour
 {
     Vector3 SubAttackPos;
     int SubAttackLevel;
-    bool isFlag;
     int count;
     // Start is called before the first frame update
-    void Start()
-    {
-        isFlag = false;
-    }
     void FixedUpdate()
     {
         count++;
@@ -35,11 +30,9 @@ public class SubController : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                isFlag = true;
                 if (count > 10)
                 {
                     Destroy(this.gameObject);
-                    isFlag = false;
                 }
             }
         }

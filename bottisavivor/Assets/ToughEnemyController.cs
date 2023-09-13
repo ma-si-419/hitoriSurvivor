@@ -10,7 +10,6 @@ public class ToughEnemyController : MonoBehaviour
     public GameObject DeathEffect;
     int enemyHP = 10;
     bool isleftFlag;
-    bool isdamageFlag = false;
     public static int ToughEnemyMove = 150;
     int count;
 

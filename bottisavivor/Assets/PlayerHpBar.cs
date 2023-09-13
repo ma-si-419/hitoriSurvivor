@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHpBar : MonoBehaviour
 {
-    int maxHp = 3;
+    int maxHp = 5;
     int currentHp;
 
     //hpbar無敵用の変数

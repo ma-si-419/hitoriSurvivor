@@ -36,7 +36,7 @@ public class BattleTime : MonoBehaviour
     bool isBossFlag;
     void Start()
     {
-
+        EventNum= 1;
         BossPlace = new Vector3(0.0f, 46.0f, 0.0f);//ボスの出現位置の設定
         // currentTimeを利用する場合にはここで代入する。以下、必要に応じてbattleTimeをcurrentTimeに書き換える
         currentTime = battleTime;
